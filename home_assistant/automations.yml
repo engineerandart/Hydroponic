@@ -1,0 +1,100 @@
+- id: '1686549135766'
+  alias: example(Triggers and Actions)
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - switch.caliec2
+    from: 'off'
+    to: 'on'
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+  condition: []
+  action:
+  - service: switch.turn_off
+    data: {}
+    target:
+      entity_id: switch.caliec2
+  mode: single
+- id: '1694897417761'
+  alias: EC calibration "enter"
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.enter
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: calibrate/caliEC
+      payload: enter
+      qos: 0
+      retain: false
+  mode: single
+- id: '1694980648866'
+  alias: EC calibration "cal:#"
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.ec_calibration_cal
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: calibrate/caliEC
+      payload: '{{ states.input_text.text1.state }}'
+      qos: 0
+      retain: false
+  mode: single
+- id: '1695973034064'
+  alias: EC calibration "exit"
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.ec_calibration_exit
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: calibrate/caliEC
+      payload: exit
+      qos: 0
+      retain: false
+  mode: single
+- id: '1695974543714'
+  alias: pH calibration value send to mqtt
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.ph_calibration_value
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: calibrate/caliph
+      payload: '{{ states.input_text.text2.state }}'
+      qos: 0
+      retain: false
+  mode: single
+- id: '1696148949024'
+  alias: 'MotorSpeed send to mqtt '
+  description: ''
+  trigger:
+  - platform: state
+    entity_id:
+    - input_button.motor_speed_enter
+  condition: []
+  action:
+  - service: mqtt.publish
+    data:
+      topic: motorspeed
+      payload: '{{ states.input_text.text3.state }}'
+      qos: 0
+      retain: false
+  mode: single
