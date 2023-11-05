@@ -3,6 +3,7 @@
 This is a Hobby Project. There are few coding that I borrow from other. I am still new to all of this. So there are more room to improvement in this project. 
 
 Đây là công việc mình đam mê. Mọi thứ vẫn còn mới mẻ với mình. Cho nên dự án này còn nhiều khoảng trống để cải thiện. 
+
 Các bạn có thể nhìn hình Bản thiết kế của mình để hiểu thêm chi tiết. Mình dùng Uno board, ESP32 và Raspberry pi 4 trong hệ thống điều khiển này. 
 
 Mình cài đặt Home Assistant vào Raspberry pi 4. Và nó sẽ được kết nối với wifi.  Raspberry pi 4 giống như một máy chủ (host or server). Home Assistant dùng để trao đổi dữ liệu hay điều khiển các thiết bị khác. Nó giống như hệ thống điều khiển trung tâm (control center). Và trong hệ thống của mình, Nó sẽ trao đổi thông tin và điều khiển với ESP32.
